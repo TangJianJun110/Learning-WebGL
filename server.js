@@ -7,7 +7,7 @@ watcher(
   filePath,
   { recursive: true, filter: (f) => !/node_modules/.test(f) },
   function (evt, name) {
-    console.log(`${name}文件更新`);
+    // console.log(`${name}文件${evt}`);
     getContentData();
   }
 );
