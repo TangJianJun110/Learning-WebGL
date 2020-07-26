@@ -1,0 +1,29 @@
+{
+  "name": "learning-webgl",
+  "version": "1.0.0",
+  "description": "测试",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TurboV/Learning-WebGL.git"
+  },
+  "author": "九门唐大佛爷",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TurboV/Learning-WebGL/issues"
+  },
+  "homepage": "https://github.com/TurboV/Learning-WebGL#readme",
+  "dependencies": {
+    "node-watch": "^0.6.4",
+    "watchr": "^6.5.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
