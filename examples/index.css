@@ -20,7 +20,7 @@ body,
     width: 100%;
 }
 .content .left{
-    width: 300px;
+    width: 200px;
     height: 100%;
     box-sizing: border-box;
     border-right: 1px #eee solid;
@@ -28,7 +28,7 @@ body,
 }
 .content .main{
     position: absolute;
-    left: 300px;
+    left: 200px;
     right: 0;
     height: 100%;
     top: 0;
