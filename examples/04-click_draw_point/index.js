@@ -2,7 +2,8 @@ window.addEventListener("load", function () {
     init("ctx");
   });
   var gl=null;
-  var arr=[];
+  var positions=[];
+  var colors=[];
   function init(id) {
     gl = getWebGLContext(id);
     if (!gl) {
@@ -39,17 +40,49 @@ window.addEventListener("load", function () {
     let ctxwidth=e.currentTarget.clientWidth;
     let x=e.x*2/ctxwidth-1.0;
     let y=1.0-e.y*2/ctxheight;
-    arr.push([x,y]);
+    positions.push([x,y]);
+
+    // xoy第一象限
+    let color=null;
+    if(x>0&y>0){
+      color={
+        r:1.0,
+        g:0.0,
+        b:0.0
+      };
+    }else if(x<=0&&y>0){
+      color={
+        r:0.0,
+        g:1.0,
+        b:0.0
+      };
+    }else if(x<=0&&y<=0){
+      color={
+        r:0.0,
+        g:0.0,
+        b:1.0
+      };
+    }else{
+      color={
+        r:1.0,
+        g:0.0,
+        b:1.0
+      };
+    }
+
+    colors.push(color);
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    for(let i=0;i<arr.length;i++){
+    for(let i=0;i<positions.length;i++){
         let a_Postion=gl.getAttribLocation(gl.program,'a_Position');
+        let u_FragColor=gl.getUniformLocation(gl.program,'u_FragColor');
         if(a_Postion<0){
           console.log('failed to get the storage location of a_Position');
           return;
         }
-        gl.vertexAttrib3f(a_Postion,arr[i][0],arr[i][1],0.0);
+        gl.vertexAttrib3f(a_Postion,positions[i][0],positions[i][1],0.0);
+        gl.uniform4f(u_FragColor,colors[i].r,colors[i].g,colors[i].b,1.0);
         gl.drawArrays(gl.POINTS, 0, 1);
     }
   }
