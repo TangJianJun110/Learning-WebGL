@@ -1,5 +1,4 @@
-function getWebGLContext(id,opt_attribs) {
-  let canvas = document.getElementById(id);
+function getWebGLContext(canvas,opt_attribs) {
   let context = null;
   if(canvas){
     let names = ["webgl", "experimental-webgl", "webkit-3d", "moz-webgl"];

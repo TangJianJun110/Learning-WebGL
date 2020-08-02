@@ -1,11 +1,15 @@
 window.addEventListener("load", function () {
-    init("ctx");
+  var canvas=document.createElement('canvas');
+  canvas.width=document.body.clientWidth;
+  canvas.height=document.body.clientHeight;
+  document.body.appendChild(canvas);
+  init(canvas);
   });
   var gl=null;
   var positions=[];
   var colors=[];
-  function init(id) {
-    gl = getWebGLContext(id);
+  function init(canvas) {
+    gl = getWebGLContext(canvas);
     if (!gl) {
       return;
     }
@@ -30,7 +34,7 @@ window.addEventListener("load", function () {
                 gl.clear(gl.COLOR_BUFFER_BIT);
                 // 1.绘制独立三角形
                 // gl.POINTS 独立的点
-                // gl.LINES 独立线段
+                // gl.LINES 独立线段，两个点一段线，彼此不相连接
                 // gl.LINE_STRIP 连续两个点绘制一条线段
                 // gl.LINE_LOOP 绘制尾巴相连的线段
                 // gl.TRIANGLES 独立三角形，连续三个点绘制一个三角形

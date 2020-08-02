@@ -1,11 +1,15 @@
 window.addEventListener("load", function () {
-    init("ctx");
+  var canvas=document.createElement('canvas');
+  canvas.width=document.body.clientWidth;
+  canvas.height=document.body.clientHeight;
+  document.body.appendChild(canvas);
+  init(canvas);
   });
   var gl=null;
   var positions=[];
   var colors=[];
-  function init(id) {
-    gl = getWebGLContext(id);
+  function init(canvas) {
+    gl = getWebGLContext(canvas);
     if (!gl) {
       return;
     }

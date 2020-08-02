@@ -46,5 +46,10 @@ body,
 }
 .left .left_list_item{
     cursor: pointer;
-    margin: 5px auto;
+    padding: 10px;
+}
+
+.left .left_list_item.selected{
+    background-color: blue;
+    color: white;
 }

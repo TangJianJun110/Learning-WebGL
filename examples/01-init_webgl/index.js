@@ -1,9 +1,13 @@
 window.addEventListener("load",()=>{
-    init("ctx");
+    var canvas=document.createElement('canvas');
+    canvas.width=document.body.clientWidth;
+    canvas.height=document.body.clientHeight;
+    document.body.appendChild(canvas);
+    init(canvas);
 });
 
-function init(id){
-    let gl=getWebGLContext(id);
+function init(canvas){
+    let gl=getWebGLContext(canvas);
     if(!gl){
         return;
     }
